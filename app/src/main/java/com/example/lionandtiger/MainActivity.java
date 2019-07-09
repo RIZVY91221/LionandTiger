@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        playerChoice[0]=Player.NO;
+       /* playerChoice[0]=Player.NO;
         playerChoice[1]=Player.NO;
         playerChoice[2]=Player.NO;
         playerChoice[3]=Player.NO;
@@ -40,7 +40,9 @@ public class MainActivity extends AppCompatActivity {
         playerChoice[5]=Player.NO;
         playerChoice[6]=Player.NO;
         playerChoice[7]=Player.NO;
-        playerChoice[8]=Player.NO;
+        playerChoice[8]=Player.NO;*/
+
+        setPlayerChoiceArray();
 
 
         resetBTN=(Button)findViewById(R.id.resetbtn);
@@ -57,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
     public void onImageTab(View view) {
         ImageView tappedImageView = (ImageView) view;
         int tiTag = Integer.parseInt(tappedImageView.getTag().toString());
-        if (playerChoice[tiTag] == Player.NO && gameOver==false) {
+        if (playerChoice[tiTag] == Player.NO && gameOver == false) {
             tappedImageView.setTranslationX(-2000);
 
             playerChoice[tiTag] = CurrentPlayer;
@@ -88,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
                     } else if (CurrentPlayer == Player.TWO) {
                         Winner = "Player One";
                     }
-                    Toast.makeText(this, Winner +"   is Winner", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, Winner +"   is Winner ", Toast.LENGTH_SHORT).show();
 
                 }
             }
@@ -103,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
         }
         CurrentPlayer=Player.ONE;
 
-        playerChoice[0]=Player.NO;
+       /* playerChoice[0]=Player.NO;
         playerChoice[1]=Player.NO;
         playerChoice[2]=Player.NO;
         playerChoice[3]=Player.NO;
@@ -111,10 +113,19 @@ public class MainActivity extends AppCompatActivity {
         playerChoice[5]=Player.NO;
         playerChoice[6]=Player.NO;
         playerChoice[7]=Player.NO;
-        playerChoice[8]=Player.NO;
+        playerChoice[8]=Player.NO;*/
+        setPlayerChoiceArray();
 
         gameOver=false;
+        resetBTN.setVisibility(View.INVISIBLE);
 
+    }
+    public void setPlayerChoiceArray()
+    {
+        for(int index=0 ; index < playerChoice.length ; index++){
+
+            playerChoice[index]=Player.NO;
+        }
     }
 
 }
